@@ -13,30 +13,35 @@
             <div class="navbar-collapse collapse w-100" id="navbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Home
-                        </a>
+                        {% if '/' == request.path %} <a class="nav-link active" href="{% url 'home' %}">
+                            {% else %}<a class="nav-link" href="{% url 'home' %}"> {% endif %}
+                                Home
+                            </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="cars.html">
-                            Cars
-                        </a>
+                        {% if 'cars' in request.path %} <a class="nav-link active" href="{% url 'cars' %}">
+                            {% else %}<a class="nav-link" href="{% url 'cars' %}"> {% endif %}
+                                Cars
+                            </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">
-                            About
-                        </a>
+                        {% if 'about' in request.path %}<a class="nav-link active" href="{% url 'home' %}">
+                            {% else %}<a class="nav-link" href="{% url 'about' %}"> {% endif %}
+                                About
+                            </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'services' %}">
-                            Services
-                        </a>
+                        {% if 'services' in request.path %} <a class="nav-link active" href="{% url 'home' %}">
+                            {% else %}<a class="nav-link" href="{% url 'services' %}"> {% endif %}
+                                Services
+                            </a>
                     </li>
 
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                        {% if 'contact' in request.path %} <a class="nav-link active" href="{% url 'home' %}">
+                            {% else %}<a class="nav-link" href="{% url 'contact' %}"> {% endif %}
+                                Contact</a>
                     </li>
                     <li class="nav-item dropdown m-hide">
                         <a href="#full-page-search" class="nav-link h-icon">
